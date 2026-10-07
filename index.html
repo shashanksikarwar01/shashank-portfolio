@@ -4,727 +4,790 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shashank Sikarwar — Portfolio</title>
+<title>Shashank Sikarwar | BCA Student</title>
 
 <meta name="description"
-content="Shashank Sikarwar — BCA student from Agra. Personal portfolio, skills, education, projects and contact information.">
+content="Portfolio of Shashank Sikarwar, BCA Student from Agra, Uttar Pradesh, India.">
+<meta name="author" content="Shashank Sikarwar">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://shashanksikarwar01.github.io/shashank-portfolio/">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 :root{
-    --black:#050505;
-    --white:#f5f5f5;
-    --gray:#8d8d8d;
-    --line:rgba(255,255,255,.13);
-    --orange:#ff6500;
-    --orange2:#ff9a4d;
+  --bg:#070707;
+  --text:#f5f3ef;
+  --muted:#999;
+  --line:rgba(255,255,255,.12);
+  --orange:#ff6a00;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    background:var(--black);
-    color:var(--white);
-    font-family:Inter,Arial,sans-serif;
-    overflow-x:hidden;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
 
 a{
-    color:inherit;
-    text-decoration:none;
+  color:inherit;
+  text-decoration:none;
 }
 
-button{
-    font:inherit;
+img{
+  display:block;
+  max-width:100%;
 }
 
 /* ================= LOADER ================= */
 
 .loader{
-    position:fixed;
-    inset:0;
-    background:#050505;
-    z-index:99999;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    padding:35px;
-    transition:1s ease;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#050505;
+  display:grid;
+  place-items:center;
+  transition:.8s ease;
 }
 
 .loader.hide{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-title{
-    font-size:13px;
-    letter-spacing:.18em;
-    color:#aaa;
+  opacity:0;
+  visibility:hidden;
 }
 
 .loader-number{
-    font-size:clamp(90px,18vw,230px);
-    line-height:.7;
-    font-weight:900;
-    letter-spacing:-.09em;
-    color:var(--orange);
+  font-size:clamp(5rem,15vw,11rem);
+  font-weight:900;
+  letter-spacing:-.08em;
+  line-height:.8;
+  text-align:center;
 }
 
-/* ================= BACKGROUND ================= */
-
-.noise{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:50;
-    opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.glow{
-    position:fixed;
-    width:550px;
-    height:550px;
-    border-radius:50%;
-    background:radial-gradient(circle,
-        rgba(255,101,0,.20),
-        rgba(255,101,0,.05) 35%,
-        transparent 70%);
-    filter:blur(25px);
-    pointer-events:none;
-    transform:translate(-50%,-50%);
-    z-index:-1;
+.loader-text{
+  margin-top:25px;
+  color:#777;
+  font-size:10px;
+  letter-spacing:.3em;
+  text-align:center;
+  text-transform:uppercase;
 }
 
 /* ================= NAV ================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index:1000;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:25px 4vw;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(5,5,5,.92),
-        transparent
-    );
+.nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  padding:25px 5vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  mix-blend-mode:difference;
 }
 
 .logo{
-    font-size:14px;
-    font-weight:900;
-    letter-spacing:.18em;
+  font-size:19px;
+  font-weight:800;
 }
 
-.nav{
-    display:flex;
-    gap:25px;
-    align-items:center;
+.nav-links{
+  display:flex;
+  gap:25px;
 }
 
-.nav a{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:.15em;
-    color:#aaa;
-    transition:.3s;
+.nav-links a{
+  font-size:12px;
+  transition:.25s;
 }
 
-.nav a:hover{
-    color:var(--orange);
+.nav-links a:hover{
+  color:var(--orange);
 }
 
-.menu{
-    display:none;
-    background:none;
-    border:1px solid var(--line);
-    color:white;
-    padding:10px 15px;
-    border-radius:30px;
-}
-
-/* ================= MOBILE MENU ================= */
-
-.mobile-menu{
-    position:fixed;
-    inset:0;
-    z-index:900;
-    background:#050505;
-    display:none;
-    padding:110px 8vw;
-}
-
-.mobile-menu.active{
-    display:block;
-}
-
-.mobile-menu a{
-    display:block;
-    font-size:45px;
-    font-weight:800;
-    letter-spacing:-.05em;
-    margin:16px 0;
+.menu-btn{
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:12px;
+  letter-spacing:.15em;
 }
 
 /* ================= HERO ================= */
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    position:relative;
-    padding:130px 6vw 80px;
+.hero-scroll{
+  height:230vh;
+  position:relative;
 }
 
-.hero-content{
-    width:100%;
-    max-width:1450px;
-    margin:auto;
+.hero-sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.top-line{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:35px;
+/* Orange glow */
+
+.hero-glow{
+  position:absolute;
+  width:48vw;
+  height:48vw;
+  max-width:650px;
+  max-height:650px;
+  right:3%;
+  top:15%;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(255,90,0,.4),
+    rgba(255,30,0,.08) 45%,
+    transparent 70%
+  );
+
+  filter:blur(20px);
+  pointer-events:none;
+
+  will-change:transform;
 }
 
-.status{
-    color:var(--orange);
-    font-size:11px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
+/* Intro text */
+
+.hero-copy{
+  position:absolute;
+  left:6vw;
+  top:27%;
+  z-index:5;
+  max-width:380px;
+  will-change:transform,opacity;
 }
 
-.location{
-    color:#777;
-    font-size:11px;
-    letter-spacing:.15em;
-    text-transform:uppercase;
+.eyebrow{
+  color:var(--orange);
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin-bottom:18px;
 }
 
-.name{
-    font-size:clamp(70px,14vw,205px);
-    font-weight:900;
-    line-height:.78;
-    letter-spacing:-.085em;
-    text-transform:uppercase;
+.hero-copy p{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.7;
 }
 
-.name .outline{
-    color:transparent;
-    -webkit-text-stroke:1px rgba(255,255,255,.65);
+/* BIG NAME */
+
+.hero-name{
+  position:absolute;
+  width:100%;
+  left:0;
+  top:48%;
+  transform:translateY(-50%);
+  z-index:3;
+  text-align:center;
+  font-weight:900;
+  line-height:.75;
+  letter-spacing:-.09em;
+  text-transform:uppercase;
+  pointer-events:none;
 }
 
-.hero-bottom{
-    display:grid;
-    grid-template-columns:1fr 330px;
-    gap:60px;
-    align-items:end;
-    margin-top:50px;
+.hero-name span{
+  display:block;
+  font-size:clamp(5rem,15vw,14rem);
+  will-change:transform;
 }
 
-.hero-description{
-    max-width:620px;
-    color:#9a9a9a;
-    font-size:16px;
-    line-height:1.8;
+.name2{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.35);
 }
 
-.buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:25px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    padding:14px 20px;
-    border-radius:50px;
-
-    border:1px solid var(--line);
-    font-size:12px;
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-    border-color:var(--orange);
-}
-
-.btn-orange{
-    background:var(--orange);
-    border-color:var(--orange);
-    color:#080808;
-    font-weight:800;
-}
+/* PHOTO */
 
 .hero-photo{
-    position:relative;
+  position:absolute;
+  z-index:4;
+
+  width:min(31vw,390px);
+  aspect-ratio:4/5;
+
+  right:12%;
+  top:18%;
+
+  overflow:hidden;
+  border-radius:4px;
+
+  background:#111;
+
+  box-shadow:
+  0 40px 100px rgba(0,0,0,.7);
+
+  will-change:transform;
 }
 
-.photo-box{
-    padding:10px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.04);
-    transform:rotate(2deg);
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.photo-box img{
-    width:100%;
-    height:390px;
-    object-fit:cover;
-    object-position:center 25%;
-    display:block;
-    filter:saturate(.85);
+.hero-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    135deg,
+    transparent 45%,
+    rgba(255,90,0,.2)
+  );
 }
 
-.photo-label{
-    position:absolute;
-    bottom:20px;
-    left:-25px;
+/* ROLE */
 
-    background:#101010;
-    border:1px solid var(--line);
-    padding:12px 15px;
+.hero-role{
+  position:absolute;
+  right:6vw;
+  bottom:9%;
+  z-index:6;
+  text-align:right;
+  will-change:transform,opacity;
+}
 
-    font-size:10px;
-    letter-spacing:.13em;
-    text-transform:uppercase;
+.hero-role strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.hero-role small{
+  display:block;
+  margin-top:8px;
+  color:#777;
+  font-size:11px;
+}
+
+.scroll-cue{
+  position:absolute;
+  bottom:8%;
+  left:6vw;
+  color:#777;
+  font-size:10px;
+  letter-spacing:.25em;
+  text-transform:uppercase;
 }
 
 /* ================= SECTIONS ================= */
 
 section{
-    padding:130px 6vw;
-    max-width:1450px;
-    margin:auto;
+  position:relative;
+  padding:130px 6vw;
 }
 
-.section-number{
-    color:var(--orange);
-    font-size:11px;
-    letter-spacing:.2em;
-    margin-bottom:20px;
+.section-inner{
+  max-width:1250px;
+  margin:auto;
+}
+
+.section-kicker{
+  color:var(--orange);
+  font-size:11px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin-bottom:20px;
 }
 
 .section-title{
-    font-size:clamp(50px,8vw,120px);
-    line-height:.85;
-    letter-spacing:-.07em;
-    margin-bottom:50px;
-}
-
-.section-intro{
-    color:#999;
-    max-width:550px;
-    line-height:1.8;
+  font-size:clamp(3rem,7vw,7rem);
+  line-height:.9;
+  letter-spacing:-.07em;
+  margin-bottom:50px;
 }
 
 /* ================= ABOUT ================= */
 
+.about{
+  background:#0b0b0b;
+}
+
 .about-grid{
-    display:grid;
-    grid-template-columns:1.3fr .7fr;
-    gap:80px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:80px;
 }
 
-.about-big{
-    font-size:clamp(25px,4vw,55px);
-    line-height:1.08;
-    letter-spacing:-.04em;
+.about-text{
+  font-size:clamp(1.4rem,2.7vw,2.4rem);
+  line-height:1.2;
+  letter-spacing:-.035em;
+  color:#ddd;
 }
 
-.about-small{
-    color:#888;
-    line-height:1.8;
-}
-
-.about-small p{
-    margin-bottom:20px;
+.about-side{
+  color:#888;
+  line-height:1.8;
+  font-size:14px;
+  border-left:1px solid var(--line);
+  padding-left:25px;
 }
 
 /* ================= SKILLS ================= */
 
 .skills{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
+  background:#070707;
+}
+
+.skill-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
 }
 
 .skill{
-    min-height:125px;
-    padding:28px;
+  min-height:130px;
+  padding:22px;
 
-    border:1px solid var(--line);
-    background:rgba(255,255,255,.035);
-    border-radius:18px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.025);
 
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 
-    transition:.3s;
+  transition:.35s;
 }
 
 .skill:hover{
-    transform:translateY(-6px);
-    border-color:rgba(255,101,0,.6);
-    background:rgba(255,101,0,.05);
+  transform:translateY(-8px);
+  border-color:rgba(255,106,0,.6);
 }
 
-.skill small{
-    color:#666;
-    font-size:10px;
+.skill-number{
+  color:#555;
+  font-size:10px;
 }
 
-.skill strong{
-    display:block;
-    margin-top:10px;
-    font-size:21px;
+.skill-name{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
 }
 
 /* ================= PROJECTS ================= */
 
 .projects{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+  background:#0b0b0b;
+}
+
+.project-list{
+  display:grid;
+  gap:18px;
 }
 
 .project{
-    min-height:390px;
-    padding:30px;
+  position:relative;
+  min-height:270px;
+  padding:35px;
 
-    border:1px solid var(--line);
-    border-radius:25px;
+  border:1px solid var(--line);
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.075),
-            rgba(255,255,255,.015)
-        );
+  background:
+  linear-gradient(
+    120deg,
+    #111,
+    #080808
+  );
 
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+  display:flex;
+  align-items:flex-end;
 
-    transition:.4s;
+  transition:.5s;
 }
 
 .project:hover{
-    transform:translateY(-8px);
-    border-color:rgba(255,101,0,.6);
+  transform:translateX(12px);
+  border-color:rgba(255,106,0,.5);
+}
+
+.project-tag{
+  position:absolute;
+  top:28px;
+  left:30px;
+
+  color:var(--orange);
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
 }
 
 .project-number{
-    color:var(--orange);
-    font-size:10px;
-    letter-spacing:.18em;
+  position:absolute;
+  top:28px;
+  right:30px;
+  color:#555;
 }
 
 .project h3{
-    font-size:clamp(32px,5vw,65px);
-    line-height:.9;
-    letter-spacing:-.06em;
-    margin-bottom:25px;
+  font-size:clamp(2rem,4vw,4.5rem);
+  letter-spacing:-.06em;
+  line-height:.9;
+  margin-bottom:15px;
 }
 
 .project p{
-    color:#888;
-    max-width:500px;
-    line-height:1.7;
-}
-
-.project-link{
-    display:inline-block;
-    margin-top:25px;
-    color:var(--orange);
-    font-weight:700;
-}
-
-.future{
-    opacity:.72;
+  color:#888;
+  max-width:520px;
+  line-height:1.6;
+  font-size:13px;
 }
 
 /* ================= EDUCATION ================= */
 
+.education{
+  background:#080808;
+}
+
 .timeline{
-    border-left:1px solid var(--line);
-    padding-left:35px;
+  border-top:1px solid var(--line);
 }
 
-.education-item{
-    position:relative;
-    padding-bottom:50px;
+.timeline-item{
+  display:grid;
+  grid-template-columns:180px 1fr auto;
+  gap:30px;
+
+  padding:32px 0;
+
+  border-bottom:1px solid var(--line);
 }
 
-.education-item::before{
-    content:"";
-    position:absolute;
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:var(--orange);
-    left:-41px;
-    top:7px;
-    box-shadow:0 0 20px var(--orange);
+.timeline-year{
+  color:#777;
+  font-size:12px;
 }
 
-.year{
-    color:var(--orange);
-    font-size:11px;
-    letter-spacing:.2em;
+.timeline-item h3{
+  font-size:24px;
 }
 
-.education-item h3{
-    font-size:30px;
-    margin:10px 0 4px;
+.timeline-item p{
+  color:#888;
+  font-size:13px;
+  margin-top:8px;
 }
 
-.education-item p{
-    color:#888;
+.timeline-status{
+  color:var(--orange);
+  font-size:10px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
 }
 
 /* ================= CERTIFICATION ================= */
 
-.certificate{
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:35px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:rgba(255,255,255,.04);
+.certification{
+  background:#0b0b0b;
 }
 
-.certificate h3{
-    font-size:35px;
+.certificate-box{
+  border:1px solid var(--line);
+  padding:45px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:
+  linear-gradient(
+    120deg,
+    rgba(255,106,0,.08),
+    transparent
+  );
 }
 
-.certificate p{
-    color:#888;
+.certificate-box h3{
+  font-size:clamp(2rem,4vw,4rem);
+  letter-spacing:-.06em;
 }
 
-.completed{
-    color:var(--orange);
+.certificate-box p{
+  color:#888;
+  margin-top:10px;
+}
+
+.certificate-mark{
+  font-size:60px;
+  color:var(--orange);
 }
 
 /* ================= CONTACT ================= */
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
+.contact{
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  background:#050505;
 }
 
-.contact-big{
-    font-size:clamp(45px,7vw,100px);
-    line-height:.9;
-    letter-spacing:-.07em;
+.contact-title{
+  font-size:clamp(4rem,10vw,11rem);
+  line-height:.78;
+  letter-spacing:-.09em;
 }
 
-.contact-list{
-    display:flex;
-    flex-direction:column;
+.contact-sub{
+  margin-top:40px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
 }
 
-.contact-item{
-    padding:20px 0;
-    border-bottom:1px solid var(--line);
-
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-
-    font-size:14px;
+.contact-sub a{
+  padding:14px 20px;
+  border:1px solid var(--line);
+  font-size:12px;
+  transition:.3s;
 }
 
-.contact-item span{
-    color:#666;
-}
-
-.contact-item a:hover{
-    color:var(--orange);
+.contact-sub a:hover{
+  color:var(--orange);
+  border-color:var(--orange);
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid var(--line);
-    padding:30px 6vw;
+  padding:25px 6vw;
+  border-top:1px solid var(--line);
 
-    display:flex;
-    justify-content:space-between;
+  display:flex;
+  justify-content:space-between;
 
-    color:#666;
-    font-size:11px;
-    letter-spacing:.08em;
+  color:#666;
+  font-size:11px;
 }
 
 /* ================= REVEAL ================= */
 
 .reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:1s ease;
+  opacity:0;
+  transform:translateY(50px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1);
 }
 
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
-    .nav{
-        display:none;
-    }
+  .nav{
+    padding:20px 6vw;
+  }
 
-    .menu{
-        display:block;
-    }
+  .menu-btn{
+    display:block;
+    z-index:102;
+  }
 
-    .hero-bottom,
-    .about-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
+  .nav-links{
+    position:fixed;
 
-    .hero-photo{
-        max-width:380px;
-        margin-top:20px;
-    }
+    top:0;
+    right:-100%;
 
-    .projects{
-        grid-template-columns:1fr;
-    }
+    width:78%;
+    height:100vh;
+
+    padding:100px 35px;
+
+    background:#080808;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:25px;
+
+    transition:.4s;
+
+    mix-blend-mode:normal;
+  }
+
+  .nav-links.open{
+    right:0;
+  }
+
+  .nav-links a{
+    font-size:20px;
+  }
+
+  .hero-scroll{
+    height:210vh;
+  }
+
+  .hero-copy{
+    left:6vw;
+    top:17%;
+    max-width:280px;
+  }
+
+  .hero-photo{
+    width:47vw;
+    right:7%;
+    top:31%;
+  }
+
+  .hero-name{
+    top:58%;
+    left:4vw;
+    text-align:left;
+  }
+
+  .hero-name span{
+    font-size:17vw;
+  }
+
+  .hero-role{
+    right:6vw;
+    bottom:9%;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .skill-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .timeline-item{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .certificate-box{
+    display:block;
+    padding:30px;
+  }
+
+  .certificate-mark{
+    margin-top:25px;
+  }
 }
 
-@media(max-width:600px){
+/* ================= SMALL MOBILE ================= */
 
-    .loader{
-        padding:20px;
-    }
+@media(max-width:520px){
 
-    .loader-number{
-        font-size:100px;
-    }
+  section{
+    padding:90px 6vw;
+  }
 
-    .hero{
-        padding:120px 6vw 70px;
-    }
+  .hero-photo{
+    width:56vw;
+    right:4%;
+    top:30%;
+  }
 
-    .name{
-        font-size:20vw;
-    }
+  .hero-name{
+    top:57%;
+  }
 
-    .top-line{
-        align-items:flex-start;
-        flex-direction:column;
-        gap:8px;
-    }
+  .hero-name span{
+    font-size:19vw;
+  }
 
-    .photo-box img{
-        height:330px;
-    }
+  .hero-copy p{
+    font-size:12px;
+  }
 
-    section{
-        padding:90px 6vw;
-    }
+  .skill{
+    min-height:115px;
+    padding:16px;
+  }
 
-    .skills{
-        grid-template-columns:1fr;
-    }
+  .skill-name{
+    font-size:12px;
+  }
 
-    .skill{
-        min-height:100px;
-    }
+  .project{
+    min-height:230px;
+    padding:25px;
+  }
 
-    .certificate{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:20px;
-    }
-
-    footer{
-        flex-direction:column;
-        gap:8px;
-    }
-
-    .mobile-menu a{
-        font-size:35px;
-    }
+  footer{
+    display:block;
+    line-height:2;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="noise"></div>
-<div class="glow" id="glow"></div>
-
 <!-- LOADER -->
+
 <div class="loader" id="loader">
-    <div class="loader-title">INITIALIZING SYSTEM</div>
-    <div class="loader-number">
-        <span id="counter">0</span>
+
+  <div>
+
+    <div class="loader-number" id="loaderNumber">
+      0
     </div>
+
+    <div class="loader-text">
+      Loading Portfolio
+    </div>
+
+  </div>
+
 </div>
 
-<!-- NAVIGATION -->
-<header>
 
-    <a href="#home" class="logo">
-        SHASHANK
-    </a>
+<!-- NAV -->
 
-    <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#certification">Certification</a>
-        <a href="#contact">Contact</a>
-        <a href="resume.pdf" target="_blank">Resume ↗</a>
-    </nav>
+<nav class="nav">
 
-    <button class="menu" id="menuBtn">
-        MENU
-    </button>
+  <a href="#home" class="logo">
+    Shashank.
+  </a>
 
-</header>
+  <button class="menu-btn" id="menuBtn">
+    Menu
+  </button>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
+  <div class="nav-links" id="navLinks">
+
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -732,649 +795,918 @@ footer{
     <a href="#education">Education</a>
     <a href="#certification">Certification</a>
     <a href="#contact">Contact</a>
-    <a href="resume.pdf" target="_blank">Resume ↗</a>
-</div>
+
+    <a href="resume.pdf"
+       download="Shashank-Sikarwar-Resume.pdf">
+       Resume ↓
+    </a>
+
+  </div>
+
+</nav>
 
 
-<!-- ================= HOME ================= -->
+<!-- MAIN -->
 
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="top-line reveal">
-            <div class="status">
-                ● OPEN TO OPPORTUNITIES
-            </div>
-
-            <div class="location">
-                AGRA · INDIA
-            </div>
-        </div>
-
-        <div class="reveal">
-
-            <h1 class="name">
-                SHASHANK
-                <span class="outline">
-                    SIKARWAR
-                </span>
-            </h1>
-
-        </div>
-
-        <div class="hero-bottom">
-
-            <div class="reveal">
-
-                <p class="hero-description">
-                    I'm Shashank Sikarwar, a BCA student at Sharda
-                    University, Agra. I'm building my foundation in
-                    programming, computer technologies and basic web
-                    development through practical learning and projects.
-                </p>
-
-                <div class="buttons">
-
-                    <a href="#projects"
-                       class="btn btn-orange">
-                        EXPLORE WORK →
-                    </a>
-
-                    <a href="#contact"
-                       class="btn">
-                        LET'S TALK →
-                    </a>
-
-                    <a href="resume.pdf"
-                       target="_blank"
-                       class="btn">
-                        RESUME ↓
-                    </a>
-
-                </div>
-
-            </div>
+<main>
 
 
-            <div class="hero-photo reveal">
+<!-- ================= HERO ================= -->
 
-                <div class="photo-box">
+<section class="hero-scroll" id="home">
 
-                    <img
-                        src="profile.jpg"
-                        alt="Shashank Sikarwar"
-                    >
+  <div class="hero-sticky">
 
-                </div>
+    <div class="hero-glow" id="heroGlow"></div>
 
-                <div class="photo-label">
-                    BCA · 2026 — PRESENT
-                </div>
 
-            </div>
+    <div class="hero-copy" id="heroCopy">
 
-        </div>
+      <div class="eyebrow">
+        BCA Student · Agra, India
+      </div>
+
+      <p>
+        I am Shashank Sikarwar, a BCA student building my
+        foundation in programming, web technology and
+        computer applications.
+      </p>
 
     </div>
 
+
+    <!-- BIG NAME -->
+
+    <div class="hero-name">
+
+      <span class="name1" id="name1">
+        Shashank
+      </span>
+
+      <span class="name2" id="name2">
+        Sikarwar
+      </span>
+
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div class="hero-photo" id="heroPhoto">
+
+      <img
+        src="profile.jpg"
+        alt="Shashank Sikarwar"
+      >
+
+    </div>
+
+
+    <div class="hero-role" id="heroRole">
+
+      <strong>
+        Portfolio / 2026
+      </strong>
+
+      <small>
+        Learning · Building · Growing
+      </small>
+
+    </div>
+
+
+    <div class="scroll-cue">
+      Scroll to explore
+    </div>
+
+  </div>
+
 </section>
+
 
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about">
+<section class="about" id="about">
 
-    <div class="section-number">
-        01 / ABOUT
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      01 / About
     </div>
 
     <h2 class="section-title reveal">
-        A STUDENT<br>
-        BUILDING<br>
-        FORWARD.
+      Building my<br>
+      digital journey.
     </h2>
+
 
     <div class="about-grid">
 
-        <div class="about-big reveal">
+      <p class="about-text reveal">
 
-            I believe the best way to learn
-            technology is to build with it.
+        I am currently pursuing Bachelor of Computer
+        Applications (BCA) with an interest in technology,
+        programming and web development.
 
-        </div>
+        My goal is to keep learning and turn ideas into
+        useful digital projects.
 
-        <div class="about-small reveal">
+      </p>
 
-            <p>
-                I am currently pursuing Bachelor of
-                Computer Applications (BCA) at
-                Sharda University, Agra.
-            </p>
 
-            <p>
-                My current focus is improving my
-                programming fundamentals,
-                computer skills and basic web
-                development knowledge.
-            </p>
+      <div class="about-side reveal">
 
-            <p>
-                I am continuously learning and
-                working towards building useful
-                real-world projects.
-            </p>
+        Based in Agra, Uttar Pradesh, India.
 
-        </div>
+        <br><br>
+
+        Currently studying BCA (AI/ML) at Sharda University,
+        Agra.
+
+        I am developing my fundamentals step by step
+        through academics, projects and practical learning.
+
+      </div>
 
     </div>
 
+  </div>
+
 </section>
+
 
 
 <!-- ================= SKILLS ================= -->
 
-<section id="skills">
+<section class="skills" id="skills">
 
-    <div class="section-number">
-        02 / SKILLS
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      02 / Skills
     </div>
 
     <h2 class="section-title reveal">
-        WHAT<br>
-        I KNOW.
+      What I<br>
+      know.
     </h2>
 
-    <div class="skills">
 
-        <div class="skill reveal">
-            <div>
-                <small>01</small>
-                <strong>Basic Web Development</strong>
-            </div>
-            <span>↗</span>
-        </div>
+    <div class="skill-grid">
 
-        <div class="skill reveal">
-            <div>
-                <small>02</small>
-                <strong>Programming Fundamentals</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">01</span>
+        <span class="skill-name">
+          Basic Web Development
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>03</small>
-                <strong>MS Word</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">02</span>
+        <span class="skill-name">
+          Programming Fundamentals
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>04</small>
-                <strong>MS Excel</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">03</span>
+        <span class="skill-name">
+          MS Word
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>05</small>
-                <strong>MS PowerPoint</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">04</span>
+        <span class="skill-name">
+          MS Excel
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>06</small>
-                <strong>Computer Fundamentals</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">05</span>
+        <span class="skill-name">
+          MS PowerPoint
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>07</small>
-                <strong>Internet & Email</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">06</span>
+        <span class="skill-name">
+          Computer Fundamentals
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>08</small>
-                <strong>File & Folder Management</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">07</span>
+        <span class="skill-name">
+          Internet &amp; Email
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>09</small>
-                <strong>Basic Computer Operations</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">08</span>
+        <span class="skill-name">
+          File &amp; Folder Management
+        </span>
+      </div>
 
-        <div class="skill reveal">
-            <div>
-                <small>10</small>
-                <strong>Typing / Data Entry</strong>
-            </div>
-            <span>↗</span>
-        </div>
+      <div class="skill reveal">
+        <span class="skill-number">09</span>
+        <span class="skill-name">
+          Basic Computer Operations
+        </span>
+      </div>
+
+      <div class="skill reveal">
+        <span class="skill-number">10</span>
+        <span class="skill-name">
+          Typing / Data Entry
+        </span>
+      </div>
 
     </div>
 
+  </div>
+
 </section>
+
 
 
 <!-- ================= PROJECTS ================= -->
 
-<section id="projects">
+<section class="projects" id="projects">
 
-    <div class="section-number">
-        03 / PROJECTS
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      03 / Selected Projects
     </div>
 
     <h2 class="section-title reveal">
-        SELECTED<br>
-        WORK.
+      Things I am<br>
+      building.
     </h2>
 
-    <div class="projects">
 
-        <!-- LIVE PROJECT -->
-
-        <a
-            href="https://shashanksikarwar01.github.io/shashank-portfolio/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project reveal"
-        >
-
-            <div class="project-number">
-                PROJECT 01 · LIVE
-            </div>
-
-            <div>
-
-                <h3>
-                    PERSONAL<br>
-                    PORTFOLIO
-                </h3>
-
-                <p>
-                    My personal portfolio website showcasing
-                    my education, skills, projects,
-                    certification and contact information.
-                </p>
-
-                <div class="project-link">
-                    VIEW LIVE WEBSITE →
-                </div>
-
-            </div>
-
-        </a>
+    <div class="project-list">
 
 
-        <!-- FUTURE PROJECT -->
+      <a
+        class="project reveal"
+        href="https://shashanksikarwar01.github.io/shashank-portfolio/"
+        target="_blank"
+        rel="noopener"
+      >
 
-        <div class="project future reveal">
+        <span class="project-tag">
+          Live Project
+        </span>
 
-            <div class="project-number">
-                PROJECT 02 · FUTURE
-            </div>
+        <span class="project-number">
+          01
+        </span>
 
-            <div>
+        <div>
 
-                <h3>
-                    JARVIS<br>
-                    AI ASSISTANT
-                </h3>
+          <h3>
+            Personal Portfolio
+          </h3>
 
-                <p>
-                    A future personal assistant project
-                    planned to understand commands and
-                    perform useful tasks.
-                </p>
-
-                <div class="project-link">
-                    COMING SOON
-                </div>
-
-            </div>
+          <p>
+            A responsive personal portfolio website
+            created to present my education, skills,
+            projects and professional profile.
+          </p>
 
         </div>
 
+      </a>
+
+
+      <div class="project reveal">
+
+        <span class="project-tag">
+          In Progress
+        </span>
+
+        <span class="project-number">
+          02
+        </span>
+
+        <div>
+
+          <h3>
+            JARVIS AI Assistant
+          </h3>
+
+          <p>
+            A future project idea focused on creating
+            a personal assistant that can understand
+            commands and perform useful tasks.
+          </p>
+
+        </div>
+
+      </div>
+
+
     </div>
 
+  </div>
+
 </section>
+
 
 
 <!-- ================= EDUCATION ================= -->
 
-<section id="education">
+<section class="education" id="education">
 
-    <div class="section-number">
-        04 / EDUCATION
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      04 / Education
     </div>
 
     <h2 class="section-title reveal">
-        LEARNING<br>
-        JOURNEY.
+      Learning<br>
+      continues.
     </h2>
+
 
     <div class="timeline">
 
-        <div class="education-item reveal">
 
-            <div class="year">
-                2026 — PRESENT
-            </div>
+      <div class="timeline-item reveal">
 
-            <h3>
-                Bachelor of Computer Applications
-            </h3>
+        <div class="timeline-year">
+          2026 — Present
+        </div>
 
-            <p>
-                Sharda University, Agra
-            </p>
+        <div>
 
-            <p>
-                Currently Studying
-            </p>
+          <h3>
+            Bachelor of Computer Applications (BCA)
+          </h3>
+
+          <p>
+            Sharda University, Agra · Uttar Pradesh, India
+          </p>
 
         </div>
 
+        <div class="timeline-status">
+          Currently Studying
+        </div>
 
-        <div class="education-item reveal">
+      </div>
 
-            <div class="year">
-                2025
-            </div>
 
-            <h3>
-                Class XII
-            </h3>
+      <div class="timeline-item reveal">
 
-            <p>
-                69%
-            </p>
+        <div class="timeline-year">
+          2025
+        </div>
+
+        <div>
+
+          <h3>
+            Class XII
+          </h3>
+
+          <p>
+            Percentage: 69%
+          </p>
 
         </div>
 
+        <div class="timeline-status">
+          Completed
+        </div>
 
-        <div class="education-item reveal">
+      </div>
 
-            <div class="year">
-                2023
-            </div>
 
-            <h3>
-                Class X
-            </h3>
+      <div class="timeline-item reveal">
 
-            <p>
-                68%
-            </p>
+        <div class="timeline-year">
+          2023
+        </div>
+
+        <div>
+
+          <h3>
+            Class X
+          </h3>
+
+          <p>
+            Percentage: 68%
+          </p>
 
         </div>
+
+        <div class="timeline-status">
+          Completed
+        </div>
+
+      </div>
+
 
     </div>
 
+  </div>
+
 </section>
+
 
 
 <!-- ================= CERTIFICATION ================= -->
 
-<section id="certification">
+<section
+  class="certification"
+  id="certification"
+>
 
-    <div class="section-number">
-        05 / CERTIFICATION
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      05 / Certification
     </div>
 
-    <h2 class="section-title reveal">
-        CERTIFICATE.
-    </h2>
 
-    <div class="certificate reveal">
+    <div class="certificate-box reveal">
 
-        <div>
+      <div>
 
-            <h3>
-                DOAP Certificate
-            </h3>
+        <h3>
+          DOAP Certificate
+        </h3>
 
-            <p>
-                Computer and office productivity fundamentals.
-            </p>
+        <p>
+          Computer course certification
+        </p>
 
-        </div>
+      </div>
 
-        <div class="completed">
-            ✓ COMPLETED
-        </div>
+      <div class="certificate-mark">
+        ✓
+      </div>
 
     </div>
+
+  </div>
 
 </section>
+
 
 
 <!-- ================= CONTACT ================= -->
 
-<section id="contact">
+<section class="contact" id="contact">
 
-    <div class="section-number">
-        06 / CONTACT
+  <div class="section-inner">
+
+    <div class="section-kicker reveal">
+      06 / Contact
     </div>
 
-    <h2 class="section-title reveal">
-        LET'S<br>
-        CONNECT.
+    <h2 class="contact-title reveal">
+
+      Let's<br>
+      connect.
+
     </h2>
 
-    <div class="contact-grid">
 
-        <div class="reveal">
+    <div class="contact-sub reveal">
 
-            <div class="contact-big">
-                HAVE AN IDEA?
-            </div>
+      <a href="mailto:sustudent.ac@gmail.com">
+        Email
+      </a>
 
-            <div class="buttons">
+      <a href="tel:+919458770080">
+        Call
+      </a>
 
-                <a
-                    href="mailto:sustudent.ac@gmail.com"
-                    class="btn btn-orange"
-                >
-                    EMAIL ME →
-                </a>
+      <a
+        href="https://www.linkedin.com/in/shashank-sikarwar-30742243"
+        target="_blank"
+        rel="noopener"
+      >
+        LinkedIn
+      </a>
 
-            </div>
-
-        </div>
-
-
-        <div class="contact-list reveal">
-
-            <div class="contact-item">
-                <span>EMAIL</span>
-                <a href="mailto:sustudent.ac@gmail.com">
-                    sustudent.ac@gmail.com
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <span>PHONE</span>
-                <a href="tel:+919458770080">
-                    9458770080
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <span>LOCATION</span>
-                <span>
-                    Agra, Uttar Pradesh, India
-                </span>
-            </div>
-
-            <div class="contact-item">
-                <span>GITHUB</span>
-                <a
-                    href="https://github.com/shashanksikarwar01"
-                    target="_blank"
-                >
-                    GitHub ↗
-                </a>
-            </div>
-
-            <div class="contact-item">
-                <span>LINKEDIN</span>
-                <a
-                    href="https://www.linkedin.com/in/shashank-sikarwar-30742243"
-                    target="_blank"
-                >
-                    LinkedIn ↗
-                </a>
-            </div>
-
-        </div>
+      <a
+        href="https://github.com/shashanksikarwar01"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
 
     </div>
+
+  </div>
 
 </section>
 
 
+</main>
+
+
+
+<!-- FOOTER -->
+
 <footer>
 
-    <span>
-        © <span id="year"></span> SHASHANK SIKARWAR
-    </span>
+  <span>
+    © <span id="year"></span>
+    Shashank Sikarwar
+  </span>
 
-    <span>
-        BCA STUDENT · AGRA · INDIA
-    </span>
+  <span>
+    Designed &amp; built as a personal portfolio.
+  </span>
 
 </footer>
+
 
 
 <script>
 
 /* ================= LOADER ================= */
 
-let number = 0;
+const loader =
+document.getElementById("loader");
 
-const counter = document.getElementById("counter");
-const loader = document.getElementById("loader");
+const loaderNumber =
+document.getElementById("loaderNumber");
 
-const loading = setInterval(() => {
+let count = 0;
 
-    number += Math.floor(Math.random() * 8) + 2;
+const loaderTimer =
+setInterval(() => {
 
-    if(number >= 100){
+  count += Math.floor(
+    Math.random() * 9
+  ) + 2;
 
-        number = 100;
+  if(count >= 100){
 
-        clearInterval(loading);
+    count = 100;
 
-        setTimeout(() => {
+    clearInterval(loaderTimer);
 
-            loader.classList.add("hide");
+    setTimeout(() => {
 
-        },500);
-    }
+      loader.classList.add("hide");
 
-    counter.textContent = number;
+    },350);
 
-},50);
+  }
+
+  loaderNumber.textContent = count;
+
+},45);
 
 
 /* ================= MOBILE MENU ================= */
 
 const menuBtn =
-    document.getElementById("menuBtn");
+document.getElementById("menuBtn");
 
-const mobileMenu =
-    document.getElementById("mobileMenu");
+const navLinks =
+document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.addEventListener(
+"click",
+() => {
 
-    mobileMenu.classList.toggle("active");
+  navLinks.classList.toggle("open");
+
+  menuBtn.textContent =
+    navLinks.classList.contains("open")
+      ? "Close"
+      : "Menu";
 
 });
 
-document
-.querySelectorAll(".mobile-menu a")
+
+navLinks
+.querySelectorAll("a")
 .forEach(link => {
 
-    link.addEventListener("click", () => {
+  link.addEventListener(
+    "click",
+    () => {
 
-        mobileMenu.classList.remove("active");
+      navLinks.classList.remove("open");
 
-    });
+      menuBtn.textContent="Menu";
 
-});
-
-
-/* ================= REVEAL ================= */
-
-const reveals =
-    document.querySelectorAll(".reveal");
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if(entry.isIntersecting){
-
-                    entry.target.classList.add("show");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-        {
-            threshold:.12
-        }
-    );
-
-reveals.forEach(item => {
-
-    observer.observe(item);
+    }
+  );
 
 });
 
 
-/* ================= CURSOR GLOW ================= */
+/* ================= HERO SCROLL ANIMATION ================= */
+
+const hero =
+document.querySelector(".hero-scroll");
+
+const name1 =
+document.getElementById("name1");
+
+const name2 =
+document.getElementById("name2");
+
+const photo =
+document.getElementById("heroPhoto");
+
+const copy =
+document.getElementById("heroCopy");
+
+const role =
+document.getElementById("heroRole");
 
 const glow =
-    document.getElementById("glow");
+document.getElementById("heroGlow");
 
-window.addEventListener("pointermove", e => {
 
-    glow.style.left =
-        e.clientX + "px";
+let ticking=false;
 
-    glow.style.top =
-        e.clientY + "px";
 
-});
+function clamp(
+  value,
+  min,
+  max
+){
+
+  return Math.max(
+    min,
+    Math.min(max,value)
+  );
+
+}
+
+
+function updateHero(){
+
+  const rect =
+    hero.getBoundingClientRect();
+
+  const total =
+    hero.offsetHeight -
+    window.innerHeight;
+
+  const progress =
+    clamp(
+      -rect.top / total,
+      0,
+      1
+    );
+
+
+  const p=progress;
+
+
+  /* DESKTOP */
+
+  if(window.innerWidth > 900){
+
+    name1.style.transform =
+      `
+      translate3d(
+        ${-p * 34}vw,
+        ${-p * 17}vh,
+        0
+      )
+      scale(${1-p*.24})
+      `;
+
+
+    name2.style.transform =
+      `
+      translate3d(
+        ${p * 35}vw,
+        ${p * 17}vh,
+        0
+      )
+      scale(${1-p*.24})
+      `;
+
+
+    photo.style.transform =
+      `
+      translate3d(
+        ${-p * 11}vw,
+        ${p * 25}vh,
+        0
+      )
+      scale(${1+p*.16})
+      rotate(${p*-5}deg)
+      `;
+
+
+    copy.style.transform =
+      `
+      translate3d(
+        ${-p*10}vw,
+        ${-p*10}vh,
+        0
+      )
+      `;
+
+    copy.style.opacity =
+      1-p*1.8;
+
+
+    role.style.transform =
+      `
+      translate3d(
+        ${p*10}vw,
+        ${p*8}vh,
+        0
+      )
+      `;
+
+    role.style.opacity =
+      1-p*1.6;
+
+
+    glow.style.transform =
+      `
+      translate3d(
+        ${-p*12}vw,
+        ${p*20}vh,
+        0
+      )
+      scale(${1+p*.8})
+      `;
+
+  }
+
+
+  /* MOBILE */
+
+  else{
+
+    name1.style.transform =
+      `
+      translate3d(
+        ${-p*18}vw,
+        ${-p*11}vh,
+        0
+      )
+      scale(${1-p*.16})
+      `;
+
+
+    name2.style.transform =
+      `
+      translate3d(
+        ${p*19}vw,
+        ${p*11}vh,
+        0
+      )
+      scale(${1-p*.16})
+      `;
+
+
+    photo.style.transform =
+      `
+      translate3d(
+        ${-p*7}vw,
+        ${p*24}vh,
+        0
+      )
+      scale(${1+p*.1})
+      rotate(${p*-3}deg)
+      `;
+
+
+    copy.style.transform =
+      `
+      translate3d(
+        ${-p*5}vw,
+        ${-p*8}vh,
+        0
+      )
+      `;
+
+    copy.style.opacity =
+      1-p*2;
+
+
+    role.style.transform =
+      `
+      translate3d(
+        ${p*5}vw,
+        ${p*6}vh,
+        0
+      )
+      `;
+
+    role.style.opacity =
+      1-p*1.7;
+
+
+    glow.style.transform =
+      `
+      translate3d(
+        ${-p*8}vw,
+        ${p*18}vh,
+        0
+      )
+      scale(${1+p*.55})
+      `;
+
+  }
+
+
+  ticking=false;
+
+}
+
+
+function requestHeroUpdate(){
+
+  if(!ticking){
+
+    requestAnimationFrame(
+      updateHero
+    );
+
+    ticking=true;
+
+  }
+
+}
+
+
+window.addEventListener(
+  "scroll",
+  requestHeroUpdate,
+  {passive:true}
+);
+
+window.addEventListener(
+  "resize",
+  requestHeroUpdate
+);
+
+updateHero();
+
+
+/* ================= SECTION REVEAL ================= */
+
+const observer =
+new IntersectionObserver(
+
+  entries => {
+
+    entries.forEach(
+      entry => {
+
+        if(entry.isIntersecting){
+
+          entry.target
+            .classList
+            .add("visible");
+
+          observer.unobserve(
+            entry.target
+          );
+
+        }
+
+      }
+    );
+
+  },
+
+  {
+    threshold:.12
+  }
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+  element =>
+    observer.observe(element)
+);
 
 
 /* ================= YEAR ================= */
 
-document.getElementById("year")
-.textContent =
+document.getElementById(
+  "year"
+).textContent =
 new Date().getFullYear();
 
 </script>
